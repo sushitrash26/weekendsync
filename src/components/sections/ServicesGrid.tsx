@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { services } from '@/lib/data'
 import { CardSpotlight } from '@/components/ui/card-spotlight'
 import { BorderBeam } from '@/components/ui/border-beam'
+import AnimatedCardStack from '@/components/ui/animate-card-animation'
 import { cn } from '@/lib/utils'
 import {
   Code,
@@ -110,6 +111,23 @@ export default function ServicesGrid() {
           )
         })}
       </div>
+
+      {/* Project Showcase — Animated Card Stack */}
+      <motion.div
+        className="mt-24"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <h3 className="font-display text-2xl md:text-3xl font-bold text-text-primary text-center mb-2">
+          Recent Builds
+        </h3>
+        <p className="font-mono text-sm text-text-muted text-center mb-8">
+          Shipped in 7 days or less
+        </p>
+        <AnimatedCardStack />
+      </motion.div>
     </section>
   )
 }
