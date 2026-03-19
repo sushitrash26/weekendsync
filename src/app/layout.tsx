@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Geist_Mono, Playfair_Display } from 'next/font/google'
+import { Inter, Cormorant_Garamond, Geist_Mono } from 'next/font/google'
+import { CustomCursor } from '@/components/cursor/CustomCursor'
 import './globals.css'
 
-const playfairDisplay = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-inter',
 })
 
 const geistMono = Geist_Mono({
@@ -31,8 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${playfairDisplay.variable} ${dmSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cormorant.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

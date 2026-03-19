@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #080808;
+  --color-bg: #050505;
   --color-cream: #F0EDD8;
   --color-accent-cyan: #00FFE0;
   --color-accent-red: #E8201A;
@@ -10,8 +10,8 @@
   --color-rule: #2A2A2A;
 
   /* Keep existing tokens for other sections */
-  --color-base-950: #050810;
-  --color-base-900: #080808;
+  --color-base-950: #020202;
+  --color-base-900: #050505;
   --color-base-800: #111111;
   --color-base-700: #1C1C1C;
   --color-base-600: #2A2A2A;
@@ -24,8 +24,8 @@
   --color-text-secondary: #8A8A7A;
   --color-text-muted: #4A4A4A;
 
-  --font-display: var(--font-playfair), serif;
-  --font-body: var(--font-dm-sans), sans-serif;
+  --font-display: var(--font-cormorant), serif;
+  --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 
   --animate-marquee: marquee 30s linear infinite;
@@ -51,14 +51,23 @@
 }
 
 body {
-  background-color: #080808;
-  color: #F0EDD8;
+  background-color: var(--color-bg);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  color: var(--color-text-primary);
   font-family: var(--font-body);
   cursor: none;
 }
 
 @media (max-width: 768px) {
   body { cursor: auto; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 h1, h2, h3, p {
@@ -75,3 +84,16 @@ h1, h2, h3, p {
 ::-webkit-scrollbar-thumb { background: #F0EDD8; border-radius: 2px; }
 
 html { scroll-behavior: smooth; }
+
+@layer utilities {
+  .glass-card {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .transition-smooth {
+    transition: all 0.4s ease-in-out;
+  }
+}
